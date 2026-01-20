@@ -1,0 +1,34 @@
+Pandas from start to finish
+
+# Setup
+
+py -m venv .venv
+.venv\Scripts\activate
+py -m pip install pandas
+
+# Main
+
+import pandas as pd # Import
+
+df = pd.read_csv('pandas_task_data.csv') # Opens CSV within a variable, df means DataFrame
+print(df) # Prints CSV
+print(df.describe()) # Summaries CSV with Mean and Min, Max
+
+# Extra Functions
+
+df1 = df.copy() # Copies the CSV into another variable
+df1 = df["Tickets"] # Assigns one column to a variable, no header
+df1 = df[["Tickets"]] # Assigns one column to a variable, with header
+print(df1) # Prints single column
+print(df1.mean()) # Prints only the mean of the column, does not work well with full csv
+df1 = df[["Gift Shop","Tickets"]] # Assigns multiple columns within one variable
+df1 = df.iloc[0] # Selects row by index
+df1 = df.iloc[0:3] # Selects multiple rows by index
+df1= df[df["Tickets"] > 400] # Selects rows based on condition
+df1= df[df["Day"] == "Monday"] # Selects rows based on condition
+df1 = df[(df["Tickets"] > 400) & (df["Tickets"] < 500)] # Selects rows based on multiple conditions
+df1 = df[(df["Day"] == "Monday") | (df["Day"] == "Tuesday")] # Selects rows based on multiple conditions
+df1["Row Summary"] = df1[["Tickets", "Gift Shop", "Snack Stand", "Pictures"]].sum(axis=1) # Summarises data for each row separately
+df1 = df.groupby("Day").sum() # Group by one column and summarise
+df1 = df.groupby(["Day", "Pay Type"]).sum() # Group and summarise for multiple columns
+df1 = df.sort_values(by="Tickets") # Sort values
