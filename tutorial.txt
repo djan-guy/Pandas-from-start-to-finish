@@ -32,3 +32,11 @@ df1["Row Summary"] = df1[["Tickets", "Gift Shop", "Snack Stand", "Pictures"]].su
 df1 = df.groupby("Day").sum() # Group by one column and summarise
 df1 = df.groupby(["Day", "Pay Type"]).sum() # Group and summarise for multiple columns
 df1 = df.sort_values(by="Tickets") # Sort values
+# Create a DataFrame
+df1 = pd.DataFrame({
+    'A': [1, 2, 3],
+    'B': [4, 5, 6],
+    'C': [7, 8, 9],
+})
+column_means = df.mean(axis=0) # Calculates mean of each column
+print(column_means)
