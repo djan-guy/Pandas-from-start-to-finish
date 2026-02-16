@@ -1,2 +1,2 @@
-# Pandas-from-start-to-finish
-Full pandas tutorial from start to finish
+# Pandas-Start-to-Finish
+Pandas Start to Finish
